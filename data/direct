@@ -1,0 +1,18 @@
+# Games
+include:category-game-accelerator-cn
+include:category-game-platforms-download
+include:category-games-cn
+
+# CDN
+include:category-cdn-cn
+
+# Google
+include:google@cn
+include:google-cn   # 需生成
+
+# Apple
+include:apple@cn
+include:apple-cn    # 需生成
+
+# Microsoft
+include:mircosoft@cn
