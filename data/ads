@@ -1,6 +1,4 @@
 include:category-ads
-include:category-games-!cn@ads
-include:category-games-cn@ads
 include:google@ads
 include:apple@ads
 include:microsoft@ads
