@@ -20,5 +20,9 @@ include:meta@!cn@!ads
 include:telegram
 # Microsoft
 include:microsoft@!cn@!ads
+include:youtube@!cn@!ads
 # Github 已包含在 Microsoft
-#include:github@!ads
+include:github@!ads
+include:cloudflare@!ads
+include:amazon@!cn@!ads
+
