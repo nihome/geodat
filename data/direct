@@ -15,4 +15,4 @@ include:apple@cn
 include:apple-cn    # 需生成
 
 # Microsoft
-include:mircosoft@cn
+include:microsoft@cn
