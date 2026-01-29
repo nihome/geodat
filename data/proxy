@@ -19,6 +19,6 @@ include:meta@!cn@!ads
 # Telegram
 include:telegram
 # Microsoft
-include:mircosoft@!cn@!ads
+include:microsoft@!cn@!ads
 # Github 已包含在 Microsoft
 #include:github@!ads
