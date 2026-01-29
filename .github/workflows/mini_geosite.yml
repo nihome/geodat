@@ -1,0 +1,71 @@
+name: Build Minimal Geosite
+on:
+  # 支持定时运行
+  #schedule:
+  #  - cron: '0 0 * * *'
+  # 支持手动点击运行
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/README.md"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout My Repo
+        uses: actions/checkout@v6
+        with:
+          path: nihome
+
+      - name: Checkout upstream rules
+        uses: actions/checkout@v6
+        with:
+          repository: v2fly/domain-list-community
+          path: upstream
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: upstream/go.mod
+          cache-dependency-path: upstream/go.sum
+
+      - name: Set variables
+        run: |
+          echo "RELEASE_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Get gfw google-cn apple-cn
+        run: |
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/gfw.txt -o upstream/data/gfw
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/apple-cn.txt -o upstream/data/apple-cn
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/google-cn.txt -o upstream/data/google-cn
+          cp nihome/data/* upstream/data/ 
+
+      - name: Build geosite.dat
+        run: |
+          mkdir public
+          cd upstream || exit 1
+          go run ./ --outputdir=../public/geosite.dat -datapath ./data -exportlists gfw,direct,block,ads,proxy
+          cd ../
+          sha256sum public/geosite.dat > public/geosite.dat.sha256sum
+          cp upstream/data/gfw ./public/gfw.txt
+          cp upstream/data/apple-cn ./public/apple-cn.txt
+          cp upstream/data/google-cn ./public/google-cn.txt
+
+      - name: Get geoip.dat relative files
+        run: |
+          curl -sL https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat -o public/geoip.dat
+          curl -sL https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat.sha256sum -o public/geoip.dat.sha256sum
+
+      - name: Release and upload assets
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          release_name: ${{ env.RELEASE_NAME }}
+          tag: ${{ env.TAG_NAME }}
+          file_glob: true
+          file: ./publish/*
