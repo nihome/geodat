@@ -1,5 +1,6 @@
-include:category-ads   # block 未包含此项
-include:category-games@ads
+include:category-ads
+include:category-games-!cn@ads
+include:category-games-cn@ads
 include:google@ads
 include:apple@ads
 include:microsoft@ads
