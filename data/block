@@ -1,5 +1,1 @@
-# include:category-ads   # 单项处理，必要时单独加入，以防 Openwrt 内存问题
-include:category-games@ads
-include:google@ads
-include:apple@ads
-include:microsoft@ads
+# include:category-ads
