@@ -52,7 +52,7 @@ jobs:
           mkdir -p publish
           cd upstream || exit 1
           
-          go run ./ --output=../publish/geosite.dat --datapath=./data --exportlists=gfw,direct,block,ads,proxy
+          go run ./ --outputdir=../publish --outputname=geosite.dat --datapath=./data --exportlists=gfw,direct,block,ads,proxy
           
           cd ../
           sha256sum publish/geosite.dat > publish/geosite.dat.sha256sum
