@@ -7,12 +7,12 @@ include:category-games-cn
 include:category-cdn-cn
 
 # Google
-include:google@cn
+include:google @cn
 include:google-cn   # 需生成
 
 # Apple
-include:apple@cn
+include:apple @cn
 include:apple-cn    # 需生成
 
 # Microsoft
-include:microsoft@cn
+include:microsoft @cn
