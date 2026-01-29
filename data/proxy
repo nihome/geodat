@@ -1,0 +1,24 @@
+# Games
+include:category-games-!cn@!cn@!ads
+# Ai
+include:category-ai-!cn
+include:copilot # 需导入
+# CDN
+include:category-cdn-!cn
+# GFW
+include:gfw # 需生成
+# Google
+include:google@!cn@!ads
+# Apple
+include:apple@!cn@!ads
+include:apple-intelligence
+# X
+include:twitter
+# Meta
+include:meta@!cn@!ads
+# Telegram
+include:telegram
+# Microsoft
+include:mircosoft@!cn@!ads
+# Github 已包含在 Microsoft
+#include:github@!ads
