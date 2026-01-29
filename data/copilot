@@ -1,0 +1,48 @@
+c1.microsoft.com
+services.microsoft.com
+api.bing.microsoft.com
+azure.com
+cdn.microsoft.com
+api.microsoft.com
+ecs.office.com
+aadcdn.msftauth.net
+microsoftonline-p.com
+
+# Copilot 核心服务
+copilot.microsoft.com
+designer.microsoft.com
+edge.microsoft.com
+githubcopilot.com
+api.githubcopilot.com
+copilot-proxy.githubusercontent.com
+
+# Bing AI / Copilot 聊天
+sydney.bing.com
+edgeservices.bing.com
+bing.com
+bingapis.com
+c.bing.com
+bat.bing.com
+
+# 身份验证 / 账号管理
+login.microsoftonline.com
+login.live.com
+account.microsoft.com
+graph.microsoft.com
+
+# 手机 APP 推送服务
+api.push.apple.com
+fcm.googleapis.com
+cloudmessaging.edge.microsoft.com
+
+# 遥测与诊断
+events.data.microsoft.com
+browser.pipe.aria.microsoft.com
+functional.events.data.microsoft.com
+prod.do.dsp.mp.microsoft.com
+
+# Office / OneDrive / Outlook 集成
+office.microsoft.com
+onedrive.live.com
+outlook.office.com
+
