@@ -1,4 +1,4 @@
-name: Build Minimal Geosite
+name: Build Geodat
 on:
   #schedule:
   #  - cron: '0 3 * * 1,4'
