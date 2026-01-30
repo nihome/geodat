@@ -59,10 +59,9 @@ jobs:
       - name: Build geosite.dat
         run: |
           mkdir -p publish
-          cd upstream || exit 1
 
           # 1. 运行手术刀预处理
-          cd upstream/data
+          cd upstream/data || exit 1
           targets=("google" "apple" "microsoft" "amazon" "meta" "youtube" "category-scholar-!cn" "category-dev-!cn")
           for name in "${targets[@]}"; do
             if [ -f "$name" ]; then
