@@ -9,9 +9,9 @@
   ads（Ads-all）
 - Openwrt 默认路径： /usr/share/v2ray/，下载：
 
-  `curl -sL https://github.com/nihome/geodat/latest/download/geoip.dat -o /usr/share/v2ray/geoip.dat`
+  `curl -sL https://github.com/nihome/geodat/releases/latest/download/geoip.dat -o /usr/share/v2ray/geoip.dat`
 
-  `curl -sL https://github.com/nihome/geodat/latest/download/geosite.dat -o /usr/share/v2ray/geosite.dat`
+  `curl -sL https://github.com/nihome/geodat/releases/latest/download/geosite.dat -o /usr/share/v2ray/geosite.dat`
 
 
 ## 致谢
