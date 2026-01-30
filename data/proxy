@@ -46,9 +46,9 @@ include:microsoft-proxy
 include:youtube-proxy
 include:amazon-proxy
 include:meta-proxy
-include:category-scholar-!cn-proxy
-include:category-dev-proxy
-include:category-social-media-!cn-proxy
+# include:category-scholar-!cn-proxy
+# include:category-dev-proxy
+# include:category-social-media-!cn-proxy
 
 services.googleapis.cn
 supertop.co

@@ -58,7 +58,7 @@ jobs:
 
           # 1. 运行手术刀预处理
           cd upstream/data || exit 1
-          targets=("google" "apple" "microsoft" "amazon" "meta" "youtube" "category-scholar-!cn" "category-dev" "category-social-media-!cn")
+          targets=("google" "apple" "microsoft" "amazon" "meta" "youtube")
           for name in "${targets[@]}"; do
             if [ -f "$name" ]; then
               grep -v "@cn" "$name" | grep -v "@ads" > "${name}-proxy"
