@@ -28,23 +28,17 @@ include:github @!ads
 include:cloudflare @!ads
 include:amazon @!cn @!ads
 
-# 学术教育 (各种大学、图书馆、论文站)
-include:category-scholar-!cn
-
-# 科学研究
-include:category-science-!cn
-
 # 维基百科与知识库
 include:wikipedia
 include:wikileaks
 
 # 科技、学术、人文
 include:category-scholar-!cn
-include:category-dev-!cn
-include:wikipedia
+include:category-dev
 
 # 主流媒体 (BBC, WSJ 等)
-include:category-media-!cn
+include:category-media
+include:category-social-media-!cn
 
 # 巨头提纯版 (配合 Action 里的 grep 手术刀)
 include:google-proxy
