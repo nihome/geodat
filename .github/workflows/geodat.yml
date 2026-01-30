@@ -1,0 +1,95 @@
+name: Build Minimal Geosite
+on:
+  schedule:
+    - cron: '0 3 * * 1,4'
+  workflow_dispatch:
+  #push:
+  #  branches:
+  #    - main
+  #  paths-ignore:
+  #    - "**/README.md"
+  #    - "data/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 添加以下三行权限声明
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout My Repo
+        uses: actions/checkout@v4
+        with:
+          path: nihome
+
+      - name: Checkout upstream rules
+        uses: actions/checkout@v4
+        with:
+          repository: v2fly/domain-list-community
+          path: upstream
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: upstream/go.mod
+          cache-dependency-path: upstream/go.sum
+
+      - name: Set variables
+        run: |
+          echo "RELEASE_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Get and Merge Rules
+        run: |
+          # 下载 Loyalsoldier 的成品并存入 data 目录
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/gfw.txt -o upstream/data/gfw
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/apple-cn.txt -o upstream/data/apple-cn
+          curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/google-cn.txt -o upstream/data/google-cn
+          
+          if [ -d "nihome/data" ]; then
+            cp -rf nihome/data/* upstream/data/
+          fi
+
+      - name: Build geosite.dat
+        run: |
+          mkdir -p publish
+
+          # 1. 运行手术刀预处理
+          cd upstream/data || exit 1
+          targets=("google" "apple" "microsoft" "amazon" "meta" "youtube" "category-scholar-!cn" "category-dev" "category-social-media-!cn")
+          for name in "${targets[@]}"; do
+            if [ -f "$name" ]; then
+              grep -v "@cn" "$name" | grep -v "@ads" > "${name}-proxy"
+              grep "@cn" "$name" | sed 's/@cn//g' > "${name}-cn"
+            fi
+          done
+          cd .. # 回到 upstream 目录
+          
+          # 2. 拷贝你的 nihome 数据（此时会包含你写的 include:apple-proxy）
+          cp -rf ../nihome/data/* ./data/
+
+          # 3. 正式编译
+          go run ./ --outputdir=../publish --outputname=geosite.dat --datapath=./data --exportlists=gfw,direct,block,ads,proxy
+          
+          cd ../ # 回到工作目录
+          sha256sum publish/geosite.dat > publish/geosite.dat.sha256sum
+          # 拷贝文本副本备用
+          cp upstream/data/gfw publish/gfw.txt
+          cp upstream/data/apple-cn publish/apple-cn.txt
+          cp upstream/data/google-cn publish/google-cn.txt
+
+      - name: Get geoip.dat
+        run: |
+          curl -sL https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat -o publish/geoip.dat
+          curl -sL https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat.sha256sum -o publish/geoip.dat.sha256sum
+
+      - name: Release and upload assets
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          release_name: ${{ env.RELEASE_NAME }}
+          tag: ${{ env.TAG_NAME }}
+          file_glob: true
+          file: ./publish/*
