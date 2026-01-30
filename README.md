@@ -1,7 +1,9 @@
 # 精简版 Geosite + Geoip
 - 可直接替换 V2ray 的 geosite.dat 和 geoip.dat（仅含 cn、private）
 - geosite.dat 仅含：
+
   direct（游戏加速、游戏 CDN、Google CN、Apple CN）
+
   block（ADS-all、Ai、Google、Apple、Microsoft、Meta、X）
 - Openwrt 默认路径： /usr/share/v2ray/
 
