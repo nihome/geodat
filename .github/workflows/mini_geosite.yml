@@ -8,6 +8,7 @@ on:
       - main
     paths-ignore:
       - "**/README.md"
+      - "data/**"
 
 jobs:
   build:
@@ -54,6 +55,27 @@ jobs:
       - name: Build geosite.dat
         run: |
           mkdir -p publish
+
+      - name: Build geosite.dat
+        run: |
+          mkdir -p publish
+          # 1. 运行手术刀预处理
+          cd upstream/data
+          targets=("google" "apple" "microsoft" "amazon" "meta" "youtube" "category-scholar-!cn" "category-dev-!cn")
+          for name in "${targets[@]}"; do
+            if [ -f "$name" ]; then
+              grep -v "@cn" "$name" | grep -v "@ads" > "${name}-proxy"
+              grep "@cn" "$name" | sed 's/@cn//g' > "${name}-cn"
+            fi
+          done
+          cd .. # 回到 upstream 目录
+          
+          # 2. 拷贝你的 nihome 数据（此时会包含你写的 include:apple-proxy）
+          cp -rf ../nihome/data/* ./data/
+
+          # 3. 正式编译
+          go run ./ --outputdir=../publish --outputname=geosite.dat --datapath=./data --exportlists=gfw,direct,block,ads,proxy
+
           cd upstream || exit 1
           
           go run ./ --outputdir=../publish --outputname=geosite.dat --datapath=./data --exportlists=gfw,direct,block,ads,proxy
