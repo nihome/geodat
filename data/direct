@@ -1,0 +1,59 @@
+# Games
+include:category-game-accelerator-cn
+include:category-game-platforms-download
+include:category-games-cn
+
+# CDN
+include:category-cdn-cn
+
+# Google
+include:google @cn
+include:google-cn   # 需生成
+
+# Apple
+include:apple @cn
+include:apple-cn    # 需生成
+
+# Microsoft
+include:microsoft @cn
+
+# Other
+openwrt.org
+zerotier.com
+
+# Games
+# steam直连域名获取国内CDN走国内线路下载
+cm.steampowered.com
+steamserver.net
+
+# steam国内CDN华为云
+steampipe.steamcontent.tnkjmec.com
+# steam国内CDN白山云
+st.dl.eccdnx.com
+st.dl.bscstorage.net
+st.dl.pinyuncloud.com
+# steam国内CDN新流云(原金山云)(支持ipv6)
+dl.steam.clngaa.com
+# steam国内CDN网宿
+cdn.mileweb.cs.steampowered.com.8686c.com
+cdn-ws.content.steamchina.com
+# steam国内CDN腾讯云 (蒸汽中国独占)
+cdn-qc.content.steamchina.com
+# steam国内CDN阿里云(支持ipv6)
+cdn-ali.content.steamchina.com
+xz.pphimalayanrt.com
+lv.queniujq.cn
+alibaba.cdn.steampipe.steamcontent.com
+
+steamcontent.com
+dl.steam.clngaa.com
+dl.steam.ksyna.com
+st.dl.bscstorage.net
+st.dl.eccdnx.com
+st.dl.pinyuncloud.com
+cdn.mileweb.cs.steampowered.com.8686c.com
+cdn-ws.content.steamchina.com
+cdn-qc.content.steamchina.com
+cdn-ali.content.steamchina.com
+epicgames-download1-1251447533.file.myqcloud.com
+

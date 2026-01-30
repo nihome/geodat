@@ -1,0 +1,54 @@
+# Games
+include:category-games-!cn @!ads
+# Ai
+include:category-ai-!cn
+include:copilot # 需导入
+# CDN
+include:category-cdn-!cn
+# GFW
+include:gfw # 需生成
+# Google
+include:google @!cn @!ads
+# Apple
+include:apple @!cn @!ads
+include:apple-intelligence
+# X
+include:twitter
+# Meta
+include:meta @!ads
+# Telegram
+include:telegram @!ads
+# Netflix
+include:netflix @!ads
+# Microsoft
+include:microsoft @!cn @!ads
+include:youtube @!ads
+# Github 已包含在 Microsoft
+include:github @!ads
+include:cloudflare @!ads
+include:amazon @!cn @!ads
+
+# 维基百科与知识库
+include:wikimedia
+
+# 科技、学术、人文
+include:category-scholar-!cn
+include:category-dev
+
+# 主流媒体 (BBC, WSJ 等)
+include:category-media
+include:category-social-media-!cn
+
+# 巨头提纯版 (配合 Action 里的 grep 手术刀)
+include:google-proxy
+include:apple-proxy
+include:microsoft-proxy
+include:youtube-proxy
+include:amazon-proxy
+include:meta-proxy
+include:category-scholar-!cn-proxy
+include:category-dev-proxy
+include:category-social-media-!cn-proxy
+
+services.googleapis.cn
+supertop.co
