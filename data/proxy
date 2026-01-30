@@ -29,8 +29,7 @@ include:cloudflare @!ads
 include:amazon @!cn @!ads
 
 # 维基百科与知识库
-include:wikipedia
-include:wikileaks
+include:wikimedia
 
 # 科技、学术、人文
 include:category-scholar-!cn
