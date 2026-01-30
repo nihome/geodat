@@ -1,2 +1,42 @@
-# geodat
-精简版 Geosite
+# 精简版 Geosite + Geoip
+- 可直接替换 V2ray 的 geosite.dat 和 geoip.dat（仅含 cn、private）
+- geosite.dat 仅含：
+
+  direct（游戏加速、游戏 CDN、游戏直连、Google CN、Apple CN）
+
+  proxy（Ai、Google、Apple、Microsoft、Meta、X、游戏代理）
+
+  ads（Ads-all）
+- Openwrt 默认路径： /usr/share/v2ray/，下载：
+
+  `curl -sL https://github.com/nihome/geodat/latest/download/geoip.dat -o /usr/share/v2ray/geoip.dat`
+
+  `curl -sL https://github.com/nihome/geodat/latest/download/geosite.dat -o /usr/share/v2ray/geosite.dat`
+
+
+## 致谢
+- [@v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
+- [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+
+## 相关
+- [@blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
+- [@LM-Firefly/Rules](https://github.com/LM-Firefly/Rules)
+- [@MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
+- [@felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+- [@gfwlist/gfwlist](https://github.com/gfwlist/gfwlist)
+- [@Loukky/gfwlist-by-loukky](https://github.com/Loukky/gfwlist-by-loukky)
+- [@Sebastian‘s Surge Rule](https://ruleset.isagood.day/ruleset.html)
+- [@DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
+- [@ACL4SSR/ACL4SSR](https://github.com/ACL4SSR/ACL4SSR)
+- [@SukkaW/Surge](https://github.com/SukkaW/Surge)
+- [@dler-io/Rules](https://github.com/dler-io/Rules)
+- [@MitaZ/Better_Filter](https://github.com/MitaZ/Better_Filter)
+- [@Elysian-Realme/FuGfConfig](https://github.com/Elysian-Realme/FuGfConfig)
+- [@antonme/ipnames](https://github.com/antonme/ipnames)
+- [@sjzar/ips](https://github.com/sjzar/ips)
+- [@Centralmatrix3/Matrix-io](https://github.com/Centralmatrix3/Matrix-io)
+- [@shangrenxi/Rules](https://github.com/shangrenxi/Rules)
+- [@Aethersailor/Custom_OpenClash_Rules](https://github.com/Aethersailor/Custom_OpenClash_Rules)
+- [@gemnioo/MixedCFWRules](https://github.com/gemnioo/MixedCFWRules)
+- [@Thoseyearsbrian/Aegis](https://github.com/Thoseyearsbrian/Aegis)
+- [@Accademia/Additional_Rule_For_Clash](https://github.com/Accademia/Additional_Rule_For_Clash)
