@@ -1,7 +1,7 @@
 name: Build Minimal Geosite
 on:
-  #schedule:
-  #  - cron: '0 0 * * *'
+  schedule:
+    - cron: '0 3 * * 1,4'
   workflow_dispatch:
   #push:
   #  branches:
